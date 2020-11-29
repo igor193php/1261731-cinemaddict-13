@@ -5,8 +5,13 @@ import {createFilmList} from "./view/film-list.js";
 import {createFilmCard} from "./view/film-card.js";
 import {createButtonShowMore} from "./view/button-show-more.js";
 import {createParagraph} from "./view/paragraph.js";
+import {generateFilm} from "./mocky/film.js";
+
 
 const FILM_CARD_COUNT = 5;
+
+const films = new Array(FILM_CARD_COUNT).fill().map(generateFilm);
+console.log(films);
 
 const siteHeaderElement = document.querySelector(`.header`);
 const siteMainElement = document.querySelector(`.main`);
@@ -25,7 +30,7 @@ const siteFilmListContainerElement = document.querySelector(`.films-list__contai
 const siteFilmListElement = document.querySelector(`.films-list`);
 
 for (let i = 0; i < FILM_CARD_COUNT; i++) {
-  render(siteFilmListContainerElement, createFilmCard(), `beforeend`);
+  render(siteFilmListContainerElement, createFilmCard(films[i]), `beforeend`);
 }
 
 render(siteFilmListElement, createButtonShowMore(), `beforeend`);
