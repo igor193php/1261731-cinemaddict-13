@@ -7,7 +7,7 @@ export const generateFilter = () => {
   ];
 
   return {
-    name: ``,
-    count: ``
+    name: filterName,
+    count: countFilms(films)
   };
 };

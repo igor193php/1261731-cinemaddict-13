@@ -7,6 +7,7 @@ import {createButtonShowMore} from "./view/button-show-more.js";
 import {createParagraph} from "./view/paragraph.js";
 import {generateFilm} from "./mocky/film.js";
 import {generateUser} from "./mocky/user.js";
+import {createDetalePoup} from "./view/ditale-poup.js";
 
 
 const FILM_CARD_COUNT = 20;
@@ -38,3 +39,9 @@ for (let i = 0; i < FILM_CARD_COUNT; i++) {
 
 render(siteFilmListElement, createButtonShowMore(), `beforeend`);
 render(siteFooterStaticsElement, createParagraph(), `beforeend`);
+
+const filmCardElement = document.querySelector(`.film-card__poster`);
+
+filmCardElement.addEventListener(`click`, function () {
+  render(siteMainElement, createDetalePoup(), `beforeend`);
+});
