@@ -1,8 +1,9 @@
-import {renderIndex} from "./src/engine/render-index.js";
-import {renderPopup} from "./src/engine/render-popup.js";
+import {renderIndex} from "./engine/render-index.js";
+import {renderPopup} from "./engine/render-popup.js";
 
 renderIndex();
 
 const filmCardElement = document.querySelector(`.film-card__poster`);
 
-filmCardElement.addEventListener(`click`, renderPopup());
+
+filmCardElement.addEventListener(`click`, renderPopup);

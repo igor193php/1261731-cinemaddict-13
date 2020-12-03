@@ -1,4 +1,5 @@
-import {createDetalePoup} from "./view/index/ditale-poup.js";
+import {createDetalePoup} from "../view/popup/ditale-poup.js";
+import {render} from "../utils";
 
 export const renderPopup = () => {
   const siteMainElement = document.querySelector(`.main`);
