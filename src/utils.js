@@ -7,6 +7,10 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
+const render = (container, template, place) => {
+  container.insertAdjacentHTML(place, template);
+};
+
 const getRandomItem = (arrayItems) => {
   const randomIndex = getRandomInteger(0, arrayItems.length - 1);
 
@@ -27,4 +31,4 @@ const getListItems = (arrayItems) => {
 
 };
 
-export {getRandomItem, getRandomInteger, getListItems};
+export {getRandomItem, getRandomInteger, getListItems, render};
