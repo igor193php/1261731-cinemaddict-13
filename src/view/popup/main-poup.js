@@ -1,4 +1,4 @@
-export const createDetalePoup = () => {
+export const createMainInPoup = () => {
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -18,18 +18,18 @@ export const createDetalePoup = () => {
       <div class="film-details__close">
         <button class="film-details__close-btn" type="button">close</button>
       </div>
-      
-      
+
+
 <!-- fiml-details -->
 
     <!-- film-details-control -->
-    
+
     </div>
 
     <div class="film-details__bottom-container">
-    
+
 <!-- film-details-comments -->
-      
+
     </div>
   </form>
 </section>
