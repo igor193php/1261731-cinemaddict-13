@@ -5,5 +5,8 @@ renderIndex();
 
 const filmCardElement = document.querySelector(`.film-card__poster`);
 
+filmCardElement.addEventListener(`click`, (evt) => {
+  evt.preventDefault();
 
-filmCardElement.addEventListener(`click`, renderPopup);
+  renderPopup();
+});

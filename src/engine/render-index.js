@@ -7,21 +7,25 @@ import {createButtonShowMore} from "../view/index/button-show-more.js";
 import {createParagraph} from "../view/index/paragraph.js";
 import {generateFilm} from "../mocky/film.js";
 import {generateUser} from "../mocky/user.js";
+import {generateFilter} from "../mocky/filter.js";
 import {render} from "../utils";
 
-export const renderIndex = () => {
+const FILM_CARD_COUNT = 20;
 
-  const FILM_CARD_COUNT = 20;
+const films = new Array(FILM_CARD_COUNT).fill().map(generateFilm);
+console.log(films);
+const renderIndex = () => {
 
-  const films = new Array(FILM_CARD_COUNT).fill().map(generateFilm);
   const user = generateUser();
+  const filter = generateFilter(films);
+  console.log(filter);
 
   const siteHeaderElement = document.querySelector(`.header`);
   const siteMainElement = document.querySelector(`.main`);
   const siteFooterStaticsElement = document.querySelector(`.footer__statistics`);
 
   render(siteHeaderElement, createProfileRatingTemplate(user), `beforeend`);
-  render(siteMainElement, createMainNavigationTemplate(), `beforeend`);
+  render(siteMainElement, createMainNavigationTemplate(filter), `beforeend`);
   render(siteMainElement, createSortTemplate(), `beforeend`);
   render(siteMainElement, createFilmList(), `beforeend`);
 
@@ -36,3 +40,5 @@ export const renderIndex = () => {
   render(siteFooterStaticsElement, createParagraph(), `beforeend`);
 
 };
+
+export {renderIndex};

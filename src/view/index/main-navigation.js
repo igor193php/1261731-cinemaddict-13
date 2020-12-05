@@ -1,4 +1,7 @@
-export const createMainNavigationTemplate = () => {
+
+export const createMainNavigationTemplate = (filter) => {
+  const {name, count} = filter;
+console.log(name);
   return `<nav class="main-navigation">
     <div class="main-navigation__items">
       <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>

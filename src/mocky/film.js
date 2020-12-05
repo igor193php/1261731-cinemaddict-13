@@ -113,7 +113,10 @@ export const generateFilm = () => {
     actors: getListItems(actors),
     country: getRandomItem(countries),
     fullDescription: getRandomItem(fullDescriptions),
-    appropriateAge
+    appropriateAge,
+    watchlist: Boolean(getRandomInteger(0, 1)),
+    watched: Boolean(getRandomInteger(0, 1)),
+    favorite: Boolean(getRandomInteger(0, 1))
   };
 
 };
