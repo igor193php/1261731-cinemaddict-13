@@ -17,15 +17,15 @@ console.log(films);
 const renderIndex = () => {
 
   const user = generateUser();
-  const filter = generateFilter(films);
-  console.log(filter);
+  const filters = generateFilter(films);
+  console.log(filters);
 
   const siteHeaderElement = document.querySelector(`.header`);
   const siteMainElement = document.querySelector(`.main`);
   const siteFooterStaticsElement = document.querySelector(`.footer__statistics`);
 
   render(siteHeaderElement, createProfileRatingTemplate(user), `beforeend`);
-  render(siteMainElement, createMainNavigationTemplate(filter), `beforeend`);
+  render(siteMainElement, createMainNavigationTemplate(filters), `beforeend`);
   render(siteMainElement, createSortTemplate(), `beforeend`);
   render(siteMainElement, createFilmList(), `beforeend`);
 
