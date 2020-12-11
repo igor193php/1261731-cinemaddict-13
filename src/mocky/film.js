@@ -1,4 +1,4 @@
-import {getRandomItem, getRandomInteger, getListItems} from "../utils.js";
+import {getRandomItem, getRandomInteger, getListItems, getRandomLengthFilm} from "../utils.js";
 import {
   TYPE_FILM,
   YEAR_LOW,
@@ -16,15 +16,13 @@ import {
 
 export const generateFilm = () => {
 
-  const randomHour = getRandomInteger(1, 3);
-  const randomMin = getRandomInteger(0, 59);
-
   return {
+    id: getRandomInteger(1, 10000),
     poster: getRandomItem(POSTERS),
     name: getRandomItem(NAMES_FILMS),
     rate: getRandomInteger(0, 10),
     year: getRandomInteger(YEAR_LOW, YEAR_HIGH),
-    length: randomHour + `h ` + randomMin + `m`,
+    length: getRandomLengthFilm,
     type: getRandomItem(TYPE_FILM),
     shotDescription: getRandomItem(SHOT_DESCRIPTIONS),
     totalComments: getRandomInteger(0, 5),

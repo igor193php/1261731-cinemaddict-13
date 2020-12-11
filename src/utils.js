@@ -45,4 +45,16 @@ const closeWindow = (buttonCloseWindowElement, popupWindowElement) => {
   });
 };
 
-export {getRandomItem, getRandomInteger, getListItems, render, closeWindow};
+const getRandomLengthFilm = () => {
+  const MIN_LENGTH_FILM = 60;
+  const MAX_LENGTH_FILM = 360;
+  const filmLengthInMin = getRandomInteger(MIN_LENGTH_FILM, MAX_LENGTH_FILM);
+  const ONE_HOUR_IN_MIN = 60;
+  const randomHour = filmLengthInMin / ONE_HOUR_IN_MIN;
+  const randomMin = filmLengthInMin % ONE_HOUR_IN_MIN;
+
+  return randomHour + `h ` + randomMin + `m`;
+
+};
+
+export {getRandomItem, getRandomInteger, getListItems, render, closeWindow, getRandomLengthFilm};
