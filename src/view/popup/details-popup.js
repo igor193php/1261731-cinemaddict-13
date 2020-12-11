@@ -1,4 +1,5 @@
-export const createDetailsInPopup = () => {
+export const createDetailsInPopup = (film) => {
+  const {} = film;
   return `<div class="film-details__info-wrap">
   <div class="film-details__poster">
   <img class="film-details__poster-img" src="./images/posters/the-great-flamarion.jpg" alt="">

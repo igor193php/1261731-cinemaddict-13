@@ -5,20 +5,11 @@ import {createFilmList} from "../view/index/film-list.js";
 import {createFilmCard} from "../view/index/film-card.js";
 import {createButtonShowMore} from "../view/index/button-show-more.js";
 import {createParagraph} from "../view/index/paragraph.js";
-import {generateFilm} from "../mocky/film.js";
-import {generateUser} from "../mocky/user.js";
-import {generateFilter} from "../mocky/filter.js";
 import {render} from "../utils";
+import {films, user, films} from "./data.js";
 
-const FILM_CARD_COUNT = 20;
 
-const films = new Array(FILM_CARD_COUNT).fill().map(generateFilm);
-console.log(films);
 const renderIndex = () => {
-
-  const user = generateUser();
-  const filters = generateFilter(films);
-  console.log(filters);
 
   const siteHeaderElement = document.querySelector(`.header`);
   const siteMainElement = document.querySelector(`.main`);

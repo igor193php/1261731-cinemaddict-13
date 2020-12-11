@@ -14,18 +14,27 @@ import {
   COUNTRIES
 } from "./const";
 
+const START_ID = 1;
+const END_ID = 10000;
+
+const START_RATE = 0;
+const END_RATE = 10;
+
+const START_COMMENT = 0;
+const END_COMMENT = 5;
+
 export const generateFilm = () => {
 
   return {
-    id: getRandomInteger(1, 10000),
+    id: getRandomInteger(START_ID, END_ID),
     poster: getRandomItem(POSTERS),
     name: getRandomItem(NAMES_FILMS),
-    rate: getRandomInteger(0, 10),
+    rate: getRandomInteger(START_RATE, END_RATE),
     year: getRandomInteger(YEAR_LOW, YEAR_HIGH),
     length: getRandomLengthFilm,
     type: getRandomItem(TYPE_FILM),
     shotDescription: getRandomItem(SHOT_DESCRIPTIONS),
-    totalComments: getRandomInteger(0, 5),
+    totalComments: getRandomInteger(START_COMMENT, END_COMMENT),
     originalName: getRandomItem(NAMES_FILMS),
     director: getRandomItem(DIRECTORS),
     screenwriters: getListItems(SRCEEN_WRITERS),

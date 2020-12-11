@@ -4,7 +4,7 @@ import {createControlsInPopup} from "../view/popup/controls-popup.js";
 import {createDetailsInPopup} from "../view/popup/details-popup.js";
 import {render, closeWindow} from "../utils";
 
-export const renderPopup = () => {
+export const renderPopup = (film) => {
   const siteMainElement = document.querySelector(`.main`);
   render(siteMainElement, createMainInPoup(), `beforeend`);
 

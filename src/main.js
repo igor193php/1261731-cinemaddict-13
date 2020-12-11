@@ -8,5 +8,6 @@ const filmCardElement = document.querySelector(`.film-card__poster`);
 filmCardElement.addEventListener(`click`, (evt) => {
   evt.preventDefault();
 
-  renderPopup();
+
+  renderPopup(film);
 });
