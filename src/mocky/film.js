@@ -31,7 +31,7 @@ export const generateFilm = () => {
     name: getRandomItem(NAMES_FILMS),
     rate: getRandomInteger(START_RATE, END_RATE),
     year: getRandomInteger(YEAR_LOW, YEAR_HIGH),
-    length: getRandomLengthFilm,
+    length: getRandomLengthFilm(),
     type: getRandomItem(TYPE_FILM),
     shotDescription: getRandomItem(SHOT_DESCRIPTIONS),
     totalComments: getRandomInteger(START_COMMENT, END_COMMENT),

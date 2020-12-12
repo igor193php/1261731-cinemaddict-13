@@ -6,10 +6,8 @@ import {createFilmCard} from "../view/index/film-card.js";
 import {createButtonShowMore} from "../view/index/button-show-more.js";
 import {createParagraph} from "../view/index/paragraph.js";
 import {render} from "../utils";
-import {films, user, films} from "./data.js";
 
-
-const renderIndex = () => {
+const renderIndex = (films, user, filters) => {
 
   const siteHeaderElement = document.querySelector(`.header`);
   const siteMainElement = document.querySelector(`.main`);
@@ -23,7 +21,7 @@ const renderIndex = () => {
   const siteFilmListContainerElement = document.querySelector(`.films-list__container`);
   const siteFilmListElement = document.querySelector(`.films-list`);
 
-  for (let i = 0; i < FILM_CARD_COUNT; i++) {
+  for (let i = 0; i < films.length; i++) {
     render(siteFilmListContainerElement, createFilmCard(films[i]), `beforeend`);
   }
 

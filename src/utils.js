@@ -53,7 +53,7 @@ const getRandomLengthFilm = () => {
   const randomHour = filmLengthInMin / ONE_HOUR_IN_MIN;
   const randomMin = filmLengthInMin % ONE_HOUR_IN_MIN;
 
-  return randomHour + `h ` + randomMin + `m`;
+  return Math.floor(randomHour) + `h ` + Math.floor(randomMin) + `m`;
 
 };
 

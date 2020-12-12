@@ -115,6 +115,8 @@ const COUNTRIES = [
   `Europe`
 ];
 
+const FILM_CARD_COUNT = 20;
+
 export {
   TYPE_FILM,
   RANKS_USER,
@@ -129,5 +131,6 @@ export {
   ACTORS,
   SRCEEN_WRITERS,
   DIRECTORS,
-  COUNTRIES
+  COUNTRIES,
+  FILM_CARD_COUNT
 };
