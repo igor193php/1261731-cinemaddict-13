@@ -5,11 +5,12 @@ import {createDetailsInPopup} from "../view/popup/details-popup.js";
 import {render, closeWindow} from "../utils";
 
 export const renderPopup = (film) => {
+
   const siteMainElement = document.querySelector(`.main`);
   render(siteMainElement, createMainInPoup(), `beforeend`);
 
   const filmDetailsTopContainerElement = document.querySelector(`.film-details__top-container`);
-  render(filmDetailsTopContainerElement, createDetailsInPopup(), `beforeend`);
+  render(filmDetailsTopContainerElement, createDetailsInPopup(film), `beforeend`);
 
   const filmDetailsInfoWrapElement = document.querySelector(`.film-details__info-wrap`);
   render(filmDetailsInfoWrapElement, createControlsInPopup(), `afterend`);
