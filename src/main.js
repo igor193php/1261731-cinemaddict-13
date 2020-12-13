@@ -1,32 +1,24 @@
-import {createProfileRatingTemplate} from "./view/profile-rating.js";
-import {createMainNavigationTemplate} from "./view/main-navigation.js";
-import {createSortTemplate} from "./view/sort.js";
-import {createFilmList} from "./view/film-list.js";
-import {createFilmCard} from "./view/film-card.js";
-import {createButtonShowMore} from "./view/button-show-more.js";
-import {createParagraph} from "./view/paragraph.js";
+import {renderIndex} from "./engine/render-index.js";
+import {renderPopup} from "./engine/render-popup.js";
+import {films, user, filters} from "./engine/data.js";
 
-const FILM_CARD_COUNT = 5;
+renderIndex(films, user, filters);
 
-const siteHeaderElement = document.querySelector(`.header`);
-const siteMainElement = document.querySelector(`.main`);
-const siteFooterStaticsElement = document.querySelector(`.footer__statistics`);
+const filmCardElement = document.querySelector(`.film-card`);
+let film = null;
 
-const render = (container, template, place) => {
-  container.insertAdjacentHTML(place, template);
-};
+filmCardElement.addEventListener(`click`, (evt) => {
+  evt.preventDefault();
+  if (evt.target.matches(`.film-card__poster`)) {
+    const idFilm = +filmCardElement.getAttribute(`id`);
 
-render(siteHeaderElement, createProfileRatingTemplate(), `beforeend`);
-render(siteMainElement, createMainNavigationTemplate(), `beforeend`);
-render(siteMainElement, createSortTemplate(), `beforeend`);
-render(siteMainElement, createFilmList(), `beforeend`);
+    films.forEach((value) => {
+      if (value.id === idFilm) {
+        film = value;
+      }
+    });
+console.log(film);
+    renderPopup(film);
+  }
 
-const siteFilmListContainerElement = document.querySelector(`.films-list__container`);
-const siteFilmListElement = document.querySelector(`.films-list`);
-
-for (let i = 0; i < FILM_CARD_COUNT; i++) {
-  render(siteFilmListContainerElement, createFilmCard(), `beforeend`);
-}
-
-render(siteFilmListElement, createButtonShowMore(), `beforeend`);
-render(siteFooterStaticsElement, createParagraph(), `beforeend`);
+});
