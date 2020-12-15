@@ -1,4 +1,4 @@
-import {createElement} from "./utils.js";
+import {createElement} from "../../utils.js";
 
 const createButtonShowMore = () => {
   return `<button class="films-list__show-more">Show more</button>`;
@@ -15,7 +15,7 @@ export default class ButtonShowMore {
 
   getElement() {
     if (!this._element) {
-      this._element = createElement(this.getElement);
+      this._element = createElement(this.getTemplate());
     }
 
     return this._element;
@@ -25,4 +25,4 @@ export default class ButtonShowMore {
     this._element = null;
   }
 
-};
+}

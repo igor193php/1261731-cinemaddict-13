@@ -17,7 +17,6 @@ filmCardElement.addEventListener(`click`, (evt) => {
         film = value;
       }
     });
-console.log(film);
     renderPopup(film);
   }
 

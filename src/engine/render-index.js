@@ -30,11 +30,10 @@ const renderIndex = (films, user, filters) => {
   if (films.length > FILM_COUNT_RER_STEP) {
     let renderedFilmCount = FILM_COUNT_RER_STEP;
 
-    renderElement(siteFilmListElement, new ButtonShowMore().getElement(), RenderPosition.BEFOREEND);
+    const showMoreButtonComponent = new ButtonShowMore();
+    renderElement(siteFilmListElement, showMoreButtonComponent.getElement(), RenderPosition.BEFOREEND);
 
-    const showMoreButtonElement = siteFilmListElement.querySelector(`.films-list__show-more`);
-
-    showMoreButtonElement.addEventListener(`click`, (evt) => {
+    showMoreButtonComponent.getElement().addEventListener(`click`, (evt) => {
       evt.preventDefault();
 
       films
@@ -44,7 +43,8 @@ const renderIndex = (films, user, filters) => {
       renderedFilmCount += FILM_COUNT_RER_STEP;
 
       if (renderedFilmCount >= films.length) {
-        showMoreButtonElement.remove();
+        showMoreButtonComponent.getElement().remove();
+        showMoreButtonComponent.removeElement();
       }
 
     });
