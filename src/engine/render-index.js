@@ -3,9 +3,9 @@ import {createMainNavigationTemplate} from "../view/index/main-navigation.js";
 import {createSortTemplate} from "../view/index/sort.js";
 import {createFilmList} from "../view/index/film-list.js";
 import {createFilmCard} from "../view/index/film-card.js";
-import {createButtonShowMore} from "../view/index/button-show-more.js";
+import ButtonShowMore from "../view/index/button-show-more.js";
 import {createParagraph} from "../view/index/paragraph.js";
-import {render} from "../utils";
+import {render, renderElement, RenderPosition} from "../utils";
 
 const FILM_COUNT_RER_STEP = 5;
 
@@ -30,7 +30,7 @@ const renderIndex = (films, user, filters) => {
   if (films.length > FILM_COUNT_RER_STEP) {
     let renderedFilmCount = FILM_COUNT_RER_STEP;
 
-    render(siteFilmListElement, createButtonShowMore(), `beforeend`);
+    renderElement(siteFilmListElement, new ButtonShowMore().getElement(), RenderPosition.BEFOREEND);
 
     const showMoreButtonElement = siteFilmListElement.querySelector(`.films-list__show-more`);
 
