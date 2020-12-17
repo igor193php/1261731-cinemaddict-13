@@ -16,7 +16,7 @@ export default class ProfileRatingTemplate {
   }
 
   getTemplate() {
-    return createFilmCard(this._user);
+    return createProfileRatingTemplate(this._user);
   }
 
   getElement() {

@@ -1,22 +1,22 @@
-import {createMainInPoup} from "../view/popup/main-poup.js";
-import {createCommentsInPopup} from "../view/popup/comments-popup.js";
-import {createControlsInPopup} from "../view/popup/controls-popup.js";
-import {createDetailsInPopup} from "../view/popup/details-popup.js";
-import {render, closeWindow} from "../utils";
+import MainInPoup from "../view/popup/main-poup.js";
+import CommentsInPopup from "../view/popup/comments-popup.js";
+import ControlsInPopup from "../view/popup/controls-popup.js";
+import DetailsInPopup from "../view/popup/details-popup.js";
+import {render, RenderPosition, closeWindow} from "../utils";
 
 export const renderPopup = (film) => {
 
   const siteMainElement = document.querySelector(`.main`);
-  render(siteMainElement, createMainInPoup(), `beforeend`);
+  render(siteMainElement, new MainInPoup().getElement(), RenderPosition.BEFOREEND);
 
   const filmDetailsTopContainerElement = document.querySelector(`.film-details__top-container`);
-  render(filmDetailsTopContainerElement, createDetailsInPopup(film), `beforeend`);
+  render(filmDetailsTopContainerElement, new DetailsInPopup(film).getElement(), RenderPosition.BEFOREEND);
 
   const filmDetailsInfoWrapElement = document.querySelector(`.film-details__info-wrap`);
-  render(filmDetailsInfoWrapElement, createControlsInPopup(), `afterend`);
+  render(filmDetailsInfoWrapElement, new ControlsInPopup().getElement(), RenderPosition.AFTERBEGIN);
 
   const filmDetailsBottomContainerElement = document.querySelector(`.film-details__bottom-container`);
-  render(filmDetailsBottomContainerElement, createCommentsInPopup(), `afterbegin`);
+  render(filmDetailsBottomContainerElement, new CommentsInPopup().getElement(), RenderPosition.BEFOREEND);
 
   const popupCloseBotton = document.querySelector(`.film-details__close-btn`);
   const sectionFilmDetailsElement = document.querySelector(`.film-details`);

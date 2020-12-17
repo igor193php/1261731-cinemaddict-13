@@ -1,4 +1,6 @@
-export const createMainInPoup = () => {
+import {createElement} from "../../utils.js";
+
+const createMainInPoup = () => {
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -38,3 +40,26 @@ export const createMainInPoup = () => {
 </html>
 `;
 };
+
+export default class MainInPoup {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createMainInPoup();
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+
+}
