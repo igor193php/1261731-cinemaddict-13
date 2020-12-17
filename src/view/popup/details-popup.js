@@ -75,7 +75,7 @@ const createDetailsInPopup = (film) => {
   ${fullDescription}
 </p>
 </div>
-</div>`
+</div>`;
 };
 
 

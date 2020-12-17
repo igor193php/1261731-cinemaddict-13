@@ -13,10 +13,10 @@ export const renderPopup = (film) => {
   render(filmDetailsTopContainerElement, new DetailsInPopup(film).getElement(), RenderPosition.BEFOREEND);
 
   const filmDetailsInfoWrapElement = document.querySelector(`.film-details__info-wrap`);
-  render(filmDetailsInfoWrapElement, new ControlsInPopup().getElement(), RenderPosition.AFTERBEGIN);
+  render(filmDetailsInfoWrapElement, new ControlsInPopup().getElement(), RenderPosition.AFTEREND);
 
   const filmDetailsBottomContainerElement = document.querySelector(`.film-details__bottom-container`);
-  render(filmDetailsBottomContainerElement, new CommentsInPopup().getElement(), RenderPosition.BEFOREEND);
+  render(filmDetailsBottomContainerElement, new CommentsInPopup().getElement(), RenderPosition.AFTERBEGIN);
 
   const popupCloseBotton = document.querySelector(`.film-details__close-btn`);
   const sectionFilmDetailsElement = document.querySelector(`.film-details`);
