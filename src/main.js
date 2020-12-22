@@ -10,7 +10,7 @@ let film = null;
 
 filmCardElement.addEventListener(`click`, (evt) => {
   evt.preventDefault();
-  if (evt.target.matches(`.film-card__poster`)) {
+  if (evt.target.matches(`.film-card__poster`) || evt.target.matches(`.film-card__title`) || evt.target.matches(`.film-card__comments`)) {
     const idFilm = +filmCardElement.getAttribute(`id`);
 
     films.forEach((value) => {
