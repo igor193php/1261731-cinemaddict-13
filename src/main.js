@@ -5,6 +5,7 @@ import {films, user, filters} from "./engine/data.js";
 renderIndex(films, user, filters);
 
 const filmCardElement = document.querySelector(`.film-card`);
+const bodyElement = document.querySelector(`body`);
 let film = null;
 
 filmCardElement.addEventListener(`click`, (evt) => {
@@ -17,6 +18,7 @@ filmCardElement.addEventListener(`click`, (evt) => {
         film = value;
       }
     });
+    bodyElement.classList.add(`hide-overflow`);
     renderPopup(film);
   }
 
