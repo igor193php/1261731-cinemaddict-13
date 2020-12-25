@@ -1,4 +1,6 @@
-export const createDetailsInPopup = (film) => {
+import {createElement} from "../../utils.js";
+
+const createDetailsInPopup = (film) => {
   const {
     poster,
     APPROPRIATE_AGE,
@@ -73,5 +75,29 @@ export const createDetailsInPopup = (film) => {
   ${fullDescription}
 </p>
 </div>
-</div>`
+</div>`;
 };
+
+
+export default class DetailsInPopup {
+  constructor(film) {
+    this._film = film;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createDetailsInPopup(this._film);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

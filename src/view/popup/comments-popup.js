@@ -1,4 +1,6 @@
-export const createCommentsInPopup = () => {
+import {createElement} from "../../utils.js";
+
+const createCommentsInPopup = () => {
   return `<section class="film-details__comments-wrap">
   <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">4</span></h3>
 
@@ -40,3 +42,26 @@ export const createCommentsInPopup = () => {
   </div>
   </section>`;
 };
+
+export default class CommentsInPopup {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createCommentsInPopup();
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+
+}

@@ -5,11 +5,12 @@ import {films, user, filters} from "./engine/data.js";
 renderIndex(films, user, filters);
 
 const filmCardElement = document.querySelector(`.film-card`);
+const bodyElement = document.querySelector(`body`);
 let film = null;
 
 filmCardElement.addEventListener(`click`, (evt) => {
   evt.preventDefault();
-  if (evt.target.matches(`.film-card__poster`)) {
+  if (evt.target.matches(`.film-card__poster`) || evt.target.matches(`.film-card__title`) || evt.target.matches(`.film-card__comments`)) {
     const idFilm = +filmCardElement.getAttribute(`id`);
 
     films.forEach((value) => {
@@ -17,7 +18,7 @@ filmCardElement.addEventListener(`click`, (evt) => {
         film = value;
       }
     });
-console.log(film);
+    bodyElement.classList.add(`hide-overflow`);
     renderPopup(film);
   }
 

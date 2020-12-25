@@ -1,4 +1,6 @@
-export const createFilmCard = (film) => {
+import {createElement} from "../../utils.js";
+
+const createFilmCard = (film) => {
   const {id, name, rate, year, type, poster, length, shotDescription, totalComments} = film;
 
   return `<article class="film-card" id=${id}>
@@ -19,3 +21,26 @@ export const createFilmCard = (film) => {
           </div>
         </article>`;
 };
+
+export default class FilmCard {
+  constructor(film) {
+    this._film = film;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createFilmCard(this._film);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
