@@ -52,7 +52,7 @@ const closeWindow = (buttonCloseWindowElement, popupWindowElement) => {
   };
 
   buttonCloseWindowElement.addEventListener(`click`, hiddenElement);
-  buttonCloseWindowElement.addEventListener(`keydown`, function (evt) {
+  document.addEventListener(`keydown`, function (evt) {
     if (evt.keyCode === KEY_ESC) {
       hiddenElement();
     }
