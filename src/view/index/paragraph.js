@@ -1,29 +1,14 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createParagraph = () => {
   return `<p>130 291 movies inside</p>`;
 };
 
 
-export default class Paragraph {
-  constructor() {
-    this._element = null;
-  }
+export default class Paragraph extends ViewAbstract {
 
   getTemplate() {
     return createParagraph();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 
 }

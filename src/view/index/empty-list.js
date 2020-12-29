@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createEmptyList = () => {
   return `<section class="films">
@@ -9,24 +9,10 @@ const createEmptyList = () => {
 </main>`;
 };
 
-export default class EmptyList {
-  constructor() {
-    this._element = null;
-  }
+export default class EmptyList extends ViewAbstract {
 
   getTemplate() {
     return createEmptyList();
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
 }

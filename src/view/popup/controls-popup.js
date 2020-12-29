@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createControlsInPopup = () => {
   return `<section class="film-details__controls">
@@ -13,25 +13,10 @@ const createControlsInPopup = () => {
 </section>`;
 };
 
-export default class ControlsInPopup {
-  constructor() {
-    this._element = null;
-  }
+export default class ControlsInPopup extends ViewAbstract {
 
   getTemplate() {
     return createControlsInPopup();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 
 }
