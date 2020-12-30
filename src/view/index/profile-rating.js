@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createProfileRatingTemplate = (user) => {
   const {rank} = user;
@@ -9,25 +9,14 @@ const createProfileRatingTemplate = (user) => {
     </section>`;
 };
 
-export default class ProfileRatingTemplate {
+export default class ProfileRatingTemplate extends ViewAbstract {
   constructor(user) {
+    super();
     this._user = user;
-    this._element = null;
   }
 
   getTemplate() {
     return createProfileRatingTemplate(this._user);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
 }

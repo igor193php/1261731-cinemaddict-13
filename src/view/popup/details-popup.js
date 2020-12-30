@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createDetailsInPopup = (film) => {
   const {
@@ -79,25 +79,14 @@ const createDetailsInPopup = (film) => {
 };
 
 
-export default class DetailsInPopup {
+export default class DetailsInPopup extends ViewAbstract {
   constructor(film) {
+    super();
     this._film = film;
-    this._element = null;
   }
 
   getTemplate() {
     return createDetailsInPopup(this._film);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
 }
