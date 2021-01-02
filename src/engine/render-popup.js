@@ -7,16 +7,16 @@ import {render, RenderPosition, closeWindow} from "../utils";
 export const renderPopup = (film) => {
 
   const siteMainElement = document.querySelector(`.main`);
-  render(siteMainElement, new MainInPoup().getElement(), RenderPosition.BEFOREEND);
+  render(siteMainElement, new MainInPoup(), RenderPosition.BEFOREEND);
 
   const filmDetailsTopContainerElement = document.querySelector(`.film-details__top-container`);
-  render(filmDetailsTopContainerElement, new DetailsInPopup(film).getElement(), RenderPosition.BEFOREEND);
+  render(filmDetailsTopContainerElement, new DetailsInPopup(film), RenderPosition.BEFOREEND);
 
   const filmDetailsInfoWrapElement = document.querySelector(`.film-details__info-wrap`);
-  render(filmDetailsInfoWrapElement, new ControlsInPopup().getElement(), RenderPosition.AFTEREND);
+  render(filmDetailsInfoWrapElement, new ControlsInPopup(), RenderPosition.AFTEREND);
 
   const filmDetailsBottomContainerElement = document.querySelector(`.film-details__bottom-container`);
-  render(filmDetailsBottomContainerElement, new CommentsInPopup().getElement(), RenderPosition.AFTERBEGIN);
+  render(filmDetailsBottomContainerElement, new CommentsInPopup(), RenderPosition.AFTERBEGIN);
 
   const popupCloseBotton = document.querySelector(`.film-details__close-btn`);
   const sectionFilmDetailsElement = document.querySelector(`.film-details`);
