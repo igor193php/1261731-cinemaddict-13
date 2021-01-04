@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createCommentsInPopup = () => {
   return `<section class="film-details__comments-wrap">
@@ -43,25 +43,10 @@ const createCommentsInPopup = () => {
   </section>`;
 };
 
-export default class CommentsInPopup {
-  constructor() {
-    this._element = null;
-  }
+export default class CommentsInPopup extends ViewAbstract {
 
   getTemplate() {
     return createCommentsInPopup();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 
 }

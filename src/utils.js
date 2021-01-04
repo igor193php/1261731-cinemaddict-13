@@ -1,3 +1,5 @@
+import ViewAbstract from "./main-classes/view-abstract";
+
 const KEY_ESC = 27;
 const KEY_ENTER = 13;
 
@@ -14,13 +16,21 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-const render = (container, element, place) => {
+const render = (container, child, place) => {
+  if (container instanceof ViewAbstract) {
+    container = container.getElement();
+  }
+
+  if (child instanceof ViewAbstract) {
+    child = child.getElement();
+  }
+
   switch (place) {
     case RenderPosition.AFTERBEGIN:
-      container.prepend(element);
+      container.prepend(child);
       break;
     case RenderPosition.BEFOREEND:
-      container.append(element);
+      container.append(child);
       break;
   }
 };

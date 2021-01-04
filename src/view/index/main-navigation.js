@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createFilterItemTemplate = (filter) => {
   const {name, count} = filter;
@@ -25,25 +25,14 @@ const createMainNavigationTemplate = (filterItems) => {
 };
 
 
-export default class MainNavigationTemplate {
+export default class MainNavigationTemplate extends ViewAbstract {
   constructor(filterItems) {
+    super();
     this._filterItems = filterItems;
-    this._element = null;
   }
 
   getTemplate() {
     return createMainNavigationTemplate(this._filterItems);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
 }

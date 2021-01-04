@@ -1,4 +1,4 @@
-import {createElement} from "../../utils.js";
+import ViewAbstract from "../../main-classes/view-abstract";
 
 const createFilmCard = (film) => {
   const {id, name, rate, year, type, poster, length, shotDescription, totalComments} = film;
@@ -22,25 +22,14 @@ const createFilmCard = (film) => {
         </article>`;
 };
 
-export default class FilmCard {
+export default class FilmCard extends ViewAbstract {
   constructor(film) {
+    super();
     this._film = film;
-    this._element = null;
   }
 
   getTemplate() {
     return createFilmCard(this._film);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
 }
