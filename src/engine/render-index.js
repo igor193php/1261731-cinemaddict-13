@@ -8,20 +8,20 @@ import Paragraph from "../view/index/paragraph.js";
 import EmptyList from "../view/index/empty-list.js";
 import {render, RenderPosition} from "../utils";
 
-const FILM_COUNT_RER_STEP = 5;
+//const FILM_COUNT_RER_STEP = 5;
 
 const renderIndex = (films, user, filters) => {
 
-  const siteHeaderElement = document.querySelector(`.header`);
-  const siteMainElement = document.querySelector(`.main`);
-  const siteFooterStaticsElement = document.querySelector(`.footer__statistics`);
+  //const siteHeaderElement = document.querySelector(`.header`);
+  //const siteMainElement = document.querySelector(`.main`);
+  //const siteFooterStaticsElement = document.querySelector(`.footer__statistics`);
 
-  render(siteHeaderElement, new ProfileRatingTemplate(user), RenderPosition.BEFOREEND);
-  render(siteMainElement, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
-  render(siteMainElement, new SortTemplate(), RenderPosition.BEFOREEND);
+  //render(siteHeaderElement, new ProfileRatingTemplate(user), RenderPosition.BEFOREEND);
+  //render(siteMainElement, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
+//  render(siteMainElement, new SortTemplate(), RenderPosition.BEFOREEND);
 
-  if (films === null || films === 0) {
-    render(siteMainElement, new EmptyList(), RenderPosition.BEFOREEND);
+  //if (films === null || films === 0) {
+    //render(siteMainElement, new EmptyList(), RenderPosition.BEFOREEND);
   } else {
     render(siteMainElement, new FilmList(), RenderPosition.BEFOREEND);
     const siteFilmListContainerElement = document.querySelector(`.films-list__container`);

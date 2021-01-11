@@ -11,14 +11,13 @@ export default class MovieList {
     this._listContainer = listContainer;
 
     this._filmListComponent = new FilmList();
-    this._filmCardComponent = new FilmCard();
     this._buttonShowMoreComponent = new ButtonShowMore();
     this._emptyListComponent = new EmptyList();
   }
 
   init(films) {
     this._films = films;
-    this._renderFilmList();
+    this._renderFilmList(this._films);
   }
 
   _renderEmptyList() {
@@ -34,6 +33,7 @@ export default class MovieList {
       this._renderEmptyList();
     } else {
       this._renderTemplateList();
+      this._renderFilmCard();
     }
 
     if (this._films.length > FILM_COUNT_RER_STEP) {
@@ -41,11 +41,17 @@ export default class MovieList {
     }
   }
 
+  _renderFilmCard() {
+    for (let i = 0; i < Math.min(this._films.length, FILM_COUNT_RER_STEP); i++) {
+      render(this._filmListComponent, new FilmCard(this._films[i]), RenderPosition.BEFOREEND);
+    }
+  }
+
   _renderShowMoreButton() {
     let renderedFilmCount = FILM_COUNT_RER_STEP;
 
     const showMoreButtonComponent = this._buttonShowMoreComponent;
-    render(this._filmListComponent, showMoreButtonComponent, RenderPosition.BEFOREEND);
+    render(this._listContainer, showMoreButtonComponent, RenderPosition.BEFOREEND);
 
     showMoreButtonComponent.setClickHandler(() => {
       this._films
