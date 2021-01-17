@@ -2,7 +2,7 @@ import FilmList from "../view/index/film-list.js";
 import ButtonShowMore from "../view/index/button-show-more.js";
 import EmptyList from "../view/index/empty-list.js";
 import Movie from "./movie";
-import {render, RenderPosition} from "../utils";
+import {render, remove, RenderPosition} from "../utils";
 import SortTemplate from "../view/index/sort";
 import MainNavigationTemplate from "../view/index/main-navigation";
 import {filters} from "../engine/data";
@@ -75,27 +75,19 @@ export default class MovieList {
   }
 
   _handleShowMoreButtonClick() {
+    this._renderFilms(this._renderedFilmCount, this._renderedFilmCount + FILM_COUNT_RER_STEP);
+    this._renderedFilmCount += FILM_COUNT_RER_STEP;
 
+    if (this._renderedFilmCount >= this._films.length) {
+      remove(this._buttonShowMoreComponent);
+    }
   }
 
   _renderShowMoreButton() {
+    render(this._listContainer, this._buttonShowMoreComponent, RenderPosition.BEFOREEND);
 
-    const showMoreButtonComponent = this._buttonShowMoreComponent;
-    render(this._listContainer, showMoreButtonComponent, RenderPosition.BEFOREEND);
+    this._buttonShowMoreComponent.setClickHandler(this._handleShowMoreButtonClick);
 
-    showMoreButtonComponent.setClickHandler(() => {
-      this._films
-        .slice(renderedFilmCount, renderedFilmCount + FILM_COUNT_RER_STEP)
-        .forEach((film) => render(this._filmListComponent, new FilmCard(film), RenderPosition.BEFOREEND));
-
-      renderedFilmCount += FILM_COUNT_RER_STEP;
-
-      if (renderedFilmCount >= this._films.length) {
-        showMoreButtonComponent.getElement().remove();
-        showMoreButtonComponent.removeElement();
-      }
-
-    });
   }
 
 }

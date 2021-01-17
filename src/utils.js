@@ -88,6 +88,16 @@ const createElement = (template) => {
   return newElement.firstElementChild;
 };
 
+export const remove = (component) => {
+  if (!(component instanceof ViewAbstract)) {
+    throw new Error(`Can remove only components`);
+  }
+
+  component.getElement().remove();
+  component.removeElement();
+};
+
+
 export {getRandomItem,
   getRandomInteger,
   getListItems,
