@@ -17,6 +17,8 @@ export default class MovieList {
     this._filmListComponent = new FilmList();
     this._buttonShowMoreComponent = new ButtonShowMore();
     this._emptyListComponent = new EmptyList();
+    this._sortComponent = new SortTemplate();
+    this._mainNavigationComponent = new MainNavigationTemplate(filters);
 
     this._handleShowMoreButtonClick = this._handleShowMoreButtonClick.bind(this);
   }
@@ -50,11 +52,11 @@ export default class MovieList {
   }
 
   _renderFilter() {
-    render(this._listContainer, new SortTemplate(), RenderPosition.BEFOREEND);
+    render(this._listContainer, this._sortComponent, RenderPosition.BEFOREEND);
   }
 
   _renderMainNavigation() {
-    render(this._listContainer, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
+    render(this._listContainer, this._mainNavigationComponent, RenderPosition.BEFOREEND);
   }
 
   _renderFilmCard() {
