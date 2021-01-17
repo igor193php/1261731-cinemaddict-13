@@ -15,7 +15,6 @@ const bodyElement = document.querySelector(`body`);
 
 render(siteHeaderElement, new ProfileRatingTemplate(user), RenderPosition.BEFOREEND);
 render(siteMainElement, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
-render(siteMainElement, new SortTemplate(), RenderPosition.BEFOREEND);
 
 let film = null;
 
