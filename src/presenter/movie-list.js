@@ -4,6 +4,8 @@ import EmptyList from "../view/index/empty-list.js";
 import Movie from "./movie";
 import {render, RenderPosition} from "../utils";
 import SortTemplate from "../view/index/sort";
+import MainNavigationTemplate from "../view/index/main-navigation";
+import {filters} from "../engine/data";
 
 const FILM_COUNT_RER_STEP = 5;
 
@@ -36,6 +38,7 @@ export default class MovieList {
     if (films === null || films === 0) {
       this._renderEmptyList();
     } else {
+      this._renderMainNavigation();
       this._renderFilter();
       this._renderTemplateList();
       this._renderFilmCard();
@@ -48,6 +51,10 @@ export default class MovieList {
 
   _renderFilter() {
     render(this._listContainer, new SortTemplate(), RenderPosition.BEFOREEND);
+  }
+
+  _renderMainNavigation() {
+    render(this._listContainer, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
   }
 
   _renderFilmCard() {

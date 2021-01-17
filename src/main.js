@@ -14,7 +14,7 @@ const filmCardElement = document.querySelector(`.film-card`);
 const bodyElement = document.querySelector(`body`);
 
 render(siteHeaderElement, new ProfileRatingTemplate(user), RenderPosition.BEFOREEND);
-render(siteMainElement, new MainNavigationTemplate(filters), RenderPosition.BEFOREEND);
+
 
 let film = null;
 
