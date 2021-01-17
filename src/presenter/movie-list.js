@@ -43,11 +43,7 @@ export default class MovieList {
       this._renderMainNavigation();
       this._renderFilter();
       this._renderTemplateList();
-      this._renderFilmCard();
-    }
-
-    if (films.length > FILM_COUNT_RER_STEP) {
-      this._renderShowMoreButton();
+      this._renderCardList();
     }
   }
 
@@ -59,13 +55,23 @@ export default class MovieList {
     render(this._listContainer, this._mainNavigationComponent, RenderPosition.BEFOREEND);
   }
 
-  _renderFilmCard() {
+  _renderFilmCard(film) {
+    const filmCardPresenter = new Movie(this._filmListComponent);
+    filmCardPresenter.init(film);
+  }
 
-    for (let i = 0; i < Math.min(this._films.length, FILM_COUNT_RER_STEP); i++) {
-      const filmCardPresenter = new Movie(this._filmListComponent);
-      filmCardPresenter.init(this._films[i]);
+  _renderFilms(from, to) {
+    this._films
+      .slice(from, to)
+      .forEach((film) => this._renderFilmCard(film));
+  }
+
+  _renderCardList() {
+    this._renderFilms(0, Math.min(this._films.length, FILM_COUNT_RER_STEP));
+
+    if (this._films.length > FILM_COUNT_RER_STEP) {
+      this._renderShowMoreButton();
     }
-
   }
 
   _handleShowMoreButtonClick() {
