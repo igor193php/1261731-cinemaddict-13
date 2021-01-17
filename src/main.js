@@ -1,7 +1,7 @@
 import ProfileRatingTemplate from "./view/index/profile-rating.js";
 import Paragraph from "./view/index/paragraph.js";
 import MovieList from "./presenter/movie-list.js";
-import {films, user, filters} from "./engine/data.js";
+import {films, user} from "./engine/data.js";
 import {render, RenderPosition} from "./utils";
 
 
