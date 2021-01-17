@@ -36,11 +36,11 @@ export default class Popup {
   }
 
   _renderControls() {
-    render(this._mainComponent,  this._controlsComponent, RenderPosition.AFTEREND);
+    render(this._mainComponent, this._controlsComponent, RenderPosition.AFTEREND);
   }
 
   _renderComments() {
-    render(this._mainComponent,  this._commentsComponent, RenderPosition.AFTERBEGIN);
+    render(this._mainComponent, this._commentsComponent, RenderPosition.AFTERBEGIN);
   }
 
 }
