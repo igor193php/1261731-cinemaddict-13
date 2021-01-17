@@ -51,21 +51,21 @@ export default class FilmCard extends ViewAbstract {
     this._callback.cardComments();
   }
 
-  _setFilmCardPosterClickHandler(callback) {
+  setFilmCardPosterClickHandler(callback) {
     this._callback.cardPoster = callback;
     this.getElement()
         .querySelector(`.film-card__poster`)
         .addEventListener(`click`, this._cardPosterClickHandler);
   }
 
-  _setCardTitleClickHandler(callback) {
+  setCardTitleClickHandler(callback) {
     this._callback.cardTitle = callback;
     this.getElement()
         .querySelector(`.film-card__title`)
         .addEventListener(`click`, this._cardTitleClickHandler);
   }
 
-  _setCardCommentsClickHandler(callback) {
+  setCardCommentsClickHandler(callback) {
     this._callback.cardComments = callback;
     this.getElement()
         .querySelector(`.film-card__comments`)
