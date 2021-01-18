@@ -26,10 +26,50 @@ export default class FilmCard extends ViewAbstract {
   constructor(film) {
     super();
     this._film = film;
+
+    this._cardPosterClickHandler = this._cardPosterClickHandler.bind(this);
+    this._cardTitleClickHandler = this._cardTitleClickHandler.bind(this);
+    this._cardCommentsClickHandler = this._cardCommentsClickHandler.bind(this);
   }
 
   getTemplate() {
     return createFilmCard(this._film);
+  }
+
+  _cardPosterClickHandler(evt) {
+    evt.preventDefault();
+    this._callback.cardPoster();
+  }
+
+  _cardTitleClickHandler(evt) {
+    evt.preventDefault();
+    this._callback.cardTitle();
+  }
+
+  _cardCommentsClickHandler(evt) {
+    evt.preventDefault();
+    this._callback.cardComments();
+  }
+
+  setFilmCardPosterClickHandler(callback) {
+    this._callback.cardPoster = callback;
+    this.getElement()
+        .querySelector(`.film-card__poster`)
+        .addEventListener(`click`, this._cardPosterClickHandler);
+  }
+
+  setCardTitleClickHandler(callback) {
+    this._callback.cardTitle = callback;
+    this.getElement()
+        .querySelector(`.film-card__title`)
+        .addEventListener(`click`, this._cardTitleClickHandler);
+  }
+
+  setCardCommentsClickHandler(callback) {
+    this._callback.cardComments = callback;
+    this.getElement()
+        .querySelector(`.film-card__comments`)
+        .addEventListener(`click`, this._cardCommentsClickHandler);
   }
 
 }
